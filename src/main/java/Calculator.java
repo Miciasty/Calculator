@@ -7,12 +7,15 @@ import java.util.Scanner;
 public class Calculator {
 
     private double base = 0;
+    private Menu menu;
 
-    private void setBase(double b) { this.base = b; }
+    public void setBase(double b) { this.base = b; }
     public double getBase() { return this.base; }
 
     public Calculator() {
         SessionInstance.setInstance(this);
+
+        menu = new Menu();
     }
 
     private void showMenu() {
@@ -62,10 +65,41 @@ public class Calculator {
         System.out.println(e.getMessage());
     }
 
+    public boolean isNumeric(String s) {
+        try {
+            Double.parseDouble(s);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     private void CommandHandler(String input) {
         String[] args = input.split(" ");
         String command = args[0];
 
+        if (args.length > 1 && isNumeric(args[1])) {
+            double value = Double.parseDouble(args[1]);
+
+            switch (command) {
+                case "add":
+                    menu.Add(value); break;
+
+                case "subtract":
+                    menu.Subtract(value); break;
+
+                case "multiply":
+                    menu.Multiply(value); break;
+
+                case "divide":
+                    menu.Divide(value); break;
+
+                default:
+                    this.systemMessage("Unknown command."); break;
+            }
+        } else {
+            this.systemMessage("Unknown command.");
+        }
     }
 
 }

@@ -1,35 +1,36 @@
 package src.main.java.methods;
 
+import src.main.java.Calculator;
 import src.main.java.SessionInstance;
 
 public class Menu {
 
-    private final double base = SessionInstance.getInstance().getBase();
+    private final Calculator base = SessionInstance.getInstance();
     private double saved = 0;
 
     public void Save() {
-        this.saved = base;
+        this.saved = base.getBase();
     }
 
     public double Load() {
         return this.saved;
     }
 
-    public double Add(double i) {
-        return base + i;
+    public void Add(double i) {
+        base.setBase( base.getBase() + i );
     }
 
-    public double Subtract(double i) {
-        return base - i;
+    public void Subtract(double i) {
+        base.setBase( base.getBase() - i );
     }
 
-    public double Multiply(double i) {
-        return base * i;
+    public void Multiply(double i) {
+        base.setBase( base.getBase() * i );
     }
 
-    public double Divide(double i) {
+    public void Divide(double i) {
         if(i != 0) {
-            return this.base / i;
+            base.setBase( base.getBase() / i );
         } else {
             throw new IllegalArgumentException("You can not divide by 0! :(");
         }
