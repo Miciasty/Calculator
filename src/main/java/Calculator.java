@@ -97,10 +97,6 @@ public class Calculator {
                 case "divide":
                     menu.Divide(value);
                     break;
-
-                default:
-                    this.systemMessage("Unknown command.");
-                    break;
             }
 
         } else if ( args.length == 1 ) {
