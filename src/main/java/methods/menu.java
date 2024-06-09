@@ -1,12 +1,15 @@
 package src.main.java.methods;
 
+import src.main.java.Calculator;
+import src.main.java.SessionInstance;
+
 public class menu {
 
+    private final double base = SessionInstance.getInstance().getBase();
     private double saved = 0;
-    private double base;
 
     public void Save() {
-        this.saved = this.base;
+        this.saved = base;
     }
 
     public double Load() {
@@ -14,15 +17,15 @@ public class menu {
     }
 
     public double Add(double i) {
-        return this.base + i;
+        return base + i;
     }
 
     public double Subtract(double i) {
-        return this.base - i;
+        return base - i;
     }
 
     public double Multiply(double i) {
-        return this.base * i;
+        return base * i;
     }
 
     public double Divide(double i) {

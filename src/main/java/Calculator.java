@@ -6,6 +6,11 @@ import java.util.Scanner;
 
 public class Calculator {
 
+    private double base = 0;
+
+    private void setBase(double b) { this.base = b; }
+    public double getBase() { return this.base; }
+
     public Calculator() {
         SessionInstance.setInstance(this);
         new menu();
