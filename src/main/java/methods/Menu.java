@@ -1,9 +1,8 @@
 package src.main.java.methods;
 
-import src.main.java.Calculator;
 import src.main.java.SessionInstance;
 
-public class menu {
+public class Menu {
 
     private final double base = SessionInstance.getInstance().getBase();
     private double saved = 0;
