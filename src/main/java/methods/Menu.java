@@ -12,8 +12,8 @@ public class Menu {
         this.saved = base.getBase();
     }
 
-    public double Load() {
-        return this.saved;
+    public void Load() {
+        base.setBase( this.saved );
     }
 
     public void Add(double i) {

@@ -32,7 +32,7 @@ public class Calculator {
                 .append("- 'save'\n")
                 .append("- 'load'\n")
                 .append("Other commands:\n")
-                .append("- 'result'\n")
+                .append("- 'help'\n")
                 .append("- 'exit'\n");
 
         this.systemMessage(menu.toString());
@@ -83,20 +83,44 @@ public class Calculator {
 
             switch (command) {
                 case "add":
-                    menu.Add(value); break;
+                    menu.Add(value);
+                    break;
 
                 case "subtract":
-                    menu.Subtract(value); break;
+                    menu.Subtract(value);
+                    break;
 
                 case "multiply":
-                    menu.Multiply(value); break;
+                    menu.Multiply(value);
+                    break;
 
                 case "divide":
-                    menu.Divide(value); break;
+                    menu.Divide(value);
+                    break;
 
                 default:
-                    this.systemMessage("Unknown command."); break;
+                    this.systemMessage("Unknown command.");
+                    break;
             }
+
+        } else if ( args.length == 1 ) {
+
+            switch (command) {
+
+                case "save":
+                    menu.Save(); break;
+
+                case "load":
+                    menu.Load(); break;
+
+                case "help":
+                    showMenu(); break;
+
+                case "exit":
+                    System.exit(0);
+                    break;
+            }
+
         } else {
             this.systemMessage("Unknown command.");
         }
